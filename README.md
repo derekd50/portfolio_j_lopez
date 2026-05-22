@@ -1,34 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Journalist Portfolio Site
 
-## Getting Started
+A modern, static portfolio website for journalists to showcase their published works, articles, and investigative pieces. Built with Next.js and optimized for GitHub Pages hosting.
 
-First, run the development server:
+## Features
+
+- ✅ **Portfolio Gallery** - Display articles in a responsive grid layout
+- ✅ **Search & Filter** - Find articles by category, title, or tags
+- ✅ **Social Media Integration** - Links to Twitter, LinkedIn, GitHub
+- ✅ **Static Export** - Deploys as pure HTML/CSS/JS to GitHub Pages
+- ✅ **Responsive Design** - Mobile-friendly with Tailwind CSS
+- ✅ **Dark Theme** - Professional dark header with light content areas
+
+## Tech Stack
+
+- **Next.js 16** - React framework with static export support
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **GitHub Pages** - Free hosting with automatic deployment
+
+## Quick Start
+
+### Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to see your site locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Edit Your Portfolio
 
-## Learn More
+Edit `public/data/portfolio.json` to update:
+- Journalist name, bio, email
+- Social media links
+- Your articles with title, description, category, publication, and URL
 
-To learn more about Next.js, take a look at the following resources:
+### Build & Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build  # Create static export in ./out
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Then deploy to GitHub Pages using the workflow below.
 
-## Deploy on Vercel
+## GitHub Pages Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If using a **project repository** (e.g., `username/portfolio_lopez_j`):
+- Edit `next.config.ts` and uncomment: `basePath: "/portfolio_lopez_j"`
+
+If using a **user page** repository (e.g., `username/username.github.io`):
+- Keep `basePath` commented out
+
+### GitHub Actions Workflow
+
+Create `.github/workflows/deploy.yml`:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/deploy-pages@v2
+```
+
+Then push to GitHub and enable Pages in repository settings.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx       # Root layout
+│   ├── page.tsx         # Home page
+│   └── globals.css      # Styles
+├── components/          # React components
+│   ├── ArticleCard.tsx
+│   ├── ArticleGrid.tsx
+│   ├── CategoryFilter.tsx
+│   ├── Header.tsx
+│   ├── SearchBar.tsx
+│   └── SocialLinks.tsx
+├── types/
+│   └── article.ts       # TypeScript interfaces
+public/
+└── data/
+    └── portfolio.json    # Your portfolio content
+```
+
+## Portfolio JSON Format
+
+```json
+{
+  "journalist": {
+    "name": "Your Name",
+    "email": "contact@example.com",
+    "bio": "Your professional bio",
+    "socialLinks": {
+      "twitter": "https://twitter.com/username",
+      "linkedin": "https://linkedin.com/in/profile",
+      "github": "https://github.com/username"
+    }
+  },
+  "articles": [
+    {
+      "id": "1",
+      "title": "Article Title",
+      "description": "Brief description",
+      "category": "News",
+      "date": "2026-04-28",
+      "url": "https://publication.com/article",
+      "publication": "Publication Name",
+      "tags": ["tag1", "tag2"]
+    }
+  ]
+}
+```
+
+**Categories:** News, Features, Opinion, Investigation, Other
+
+## Scripts
+
+- `npm run dev` - Development server
+- `npm run build` - Production build
+- `npm run lint` - ESLint check
+
+## License
+
+MIT
