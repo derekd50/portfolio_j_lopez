@@ -64,7 +64,7 @@ export default async function Home() {
                     Bio
                   </p>
                   <p className="text-sm leading-7 text-slate-200">
-                    I am a proficient copywriter and reporter with over six years of experience in the field. My work has been featured in various publications, where I have covered a wide range of topics from business to lifestyle and culture. I currently lead the content team at SWBC, serving as the primary Copywriter across twelve divisions.
+                    I am a proficient copywriter and reporter with over six years of experience. My work has been featured in various publications, where I have covered a wide range of topics from business to lifestyle and culture. I currently lead the content team at SWBC, serving as the primary Copywriter across twelve divisions.
                   </p>
                 </div>
               </div>
