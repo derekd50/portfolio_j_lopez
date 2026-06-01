@@ -36,7 +36,7 @@ export default async function Home() {
         <section className="relative overflow-hidden border-b border-slate-800">
           <div className="absolute inset-0">
             <Image
-              src="/images/sa_skyline_retro.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/sa_skyline_retro.png`}
               alt="Journalism hero banner"
               fill
               className="object-cover"

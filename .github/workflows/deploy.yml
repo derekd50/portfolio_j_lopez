@@ -31,6 +31,8 @@ jobs:
 
       - name: Build Next.js project
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /portfolio_j_lopez
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
