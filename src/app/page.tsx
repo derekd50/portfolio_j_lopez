@@ -58,7 +58,7 @@ export default async function Home() {
                   {journalist.bio || "Professional journalist and storyteller"}
                 </p>
               </div>
-              <div className="hidden lg:flex justify-end">
+              <div className="flex justify-center lg:justify-end">
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-lg text-white/90 max-w-sm">
                   <p className="text-sm uppercase tracking-[0.3em] text-blue-300 mb-4">
                     Bio
