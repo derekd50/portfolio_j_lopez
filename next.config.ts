@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // Uncomment and set basePath if hosting on a GitHub project page (not a user page)
-  // basePath: "/portfolio_lopez_j",
+  basePath: "/portfolio_lopez_j",
 };
 
 export default nextConfig;
