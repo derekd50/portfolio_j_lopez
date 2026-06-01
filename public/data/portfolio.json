@@ -1,11 +1,11 @@
 {
   "journalist": {
-    "name": "Lopez, J.",
-    "email": "contact@example.com",
-    "bio": "Experienced journalist covering breaking news, investigative stories, and cultural features.",
+    "name": "Jalen Lopez",
+    "email": "lopez.jalen9542@gmail.com",
+    "bio": "Crafting compelling copy that converts.",
     "socialLinks": {
       "twitter": "https://twitter.com/journalist",
-      "linkedin": "https://linkedin.com/in/journalist",
+      "linkedin": "https://linkedin.com/in/jalen-lopez",
       "github": "https://github.com/journalist"
     }
   },

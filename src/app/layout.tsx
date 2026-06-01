@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Journalist Portfolio - Lopez, J.",
   description:
-    "Professional portfolio showcasing journalism work, articles, and investigative pieces.",
+    "Professional portfolio showcasing journalism work and articles.",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-slate-950 text-slate-100 antialiased">{children}</body>
+      <body className="bg-slate-50 text-slate-900 antialiased">{children}</body>
     </html>
   );
 }

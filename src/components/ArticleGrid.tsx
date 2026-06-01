@@ -21,7 +21,7 @@ export default function ArticleGrid({ articles }: ArticleGridProps) {
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>
-      <div className="text-center text-sm text-slate-400 pt-6">
+      <div className="text-center text-sm text-slate-500 pt-6">
         Showing {articles.length} links
       </div>
     </div>

@@ -31,7 +31,7 @@ export default async function Home() {
     <>
       <Header />
 
-      <main className="min-h-screen bg-slate-950">
+      <main className="min-h-screen bg-slate-50">
         {/* Top image hero */}
         <section className="relative overflow-hidden border-b border-slate-800">
           <div className="absolute inset-0">
@@ -48,7 +48,7 @@ export default async function Home() {
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="text-white">
-                <p className="text-sm uppercase tracking-[0.35em] text-cyan-300 mb-4">
+                <p className="text-sm uppercase tracking-[0.35em] text-blue-300 mb-4">
                   Journalist Portfolio
                 </p>
                 <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
@@ -60,11 +60,11 @@ export default async function Home() {
               </div>
               <div className="hidden lg:flex justify-end">
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-lg text-white/90 max-w-sm">
-                  <p className="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">
-                    Featured Links
+                  <p className="text-sm uppercase tracking-[0.3em] text-blue-300 mb-4">
+                    Bio
                   </p>
                   <p className="text-sm leading-7 text-slate-200">
-                    Access the journalist's work across multiple publishing sites with a clean directory-style presentation.
+                    I am a proficient copywriter and reporter with over six years of experience in the field. My work has been featured in various publications, where I have covered a wide range of topics from business to lifestyle and culture. I currently lead the content team at SWBC, serving as the primary Copywriter across twelve divisions.
                   </p>
                 </div>
               </div>
@@ -73,14 +73,14 @@ export default async function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="py-16 sm:py-20 bg-slate-950">
+        <section id="portfolio" className="py-16 sm:py-20 bg-slate-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-12">
-              <h3 className="text-3xl sm:text-4xl font-bold mb-2 text-white">
+              <h3 className="text-3xl sm:text-4xl font-bold mb-2 text-slate-900">
                 Featured Works
               </h3>
-              <p className="text-slate-400">
-                Browse through my published articles and pieces
+              <p className="text-slate-500">
+                Access my published articles and pieces
               </p>
             </div>
             <ArticleGrid articles={sortedArticles} />
@@ -88,13 +88,13 @@ export default async function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="bg-slate-900 py-16 sm:py-20">
+        <section id="contact" className="bg-slate-100 py-16 sm:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-white">
+            <h3 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-slate-900">
               Get in Touch
             </h3>
-            <div className="bg-slate-950 border border-slate-800 rounded-3xl shadow-2xl shadow-slate-950/40 p-8 sm:p-12 max-w-2xl mx-auto">
-              <p className="text-slate-300 mb-6 text-center">
+            <div className="bg-white border border-slate-200 rounded-3xl shadow-lg shadow-slate-200/60 p-8 sm:p-12 max-w-2xl mx-auto">
+              <p className="text-slate-600 mb-6 text-center">
                 Interested in collaborating or discussing a story? Feel free to
                 reach out.
               </p>
@@ -106,24 +106,13 @@ export default async function Home() {
                   email={journalist.email}
                 />
               </div>
-              {journalist.email && (
-                <p className="text-center mt-6 text-slate-400">
-                  Email:{" "}
-                  <a
-                    href={`mailto:${journalist.email}`}
-                    className="text-cyan-400 hover:text-cyan-300 font-semibold"
-                  >
-                    {journalist.email}
-                  </a>
-                </p>
-              )}
             </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+      <footer className="bg-slate-800 text-slate-400 py-8 text-center text-sm">
         <p>
           © {new Date().getFullYear()} {journalist.name || "Portfolio"}. All
           rights reserved.

@@ -12,9 +12,7 @@ export default function SocialLinks({
   email,
 }: SocialLinksProps) {
   const links = [
-    { label: "Twitter", url: twitter, icon: "𝕏" },
     { label: "LinkedIn", url: linkedin, icon: "in" },
-    { label: "GitHub", url: github, icon: "⚙" },
   ];
 
   return (
@@ -27,7 +25,7 @@ export default function SocialLinks({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 transition-colors text-slate-200 text-sm font-semibold"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white transition-colors text-slate-700 text-sm font-semibold"
               title={link.label}
             >
               {link.icon}
@@ -37,7 +35,7 @@ export default function SocialLinks({
       {email && (
         <a
           href={`mailto:${email}`}
-          className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 transition-colors text-slate-200 text-sm font-semibold"
+          className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white transition-colors text-slate-700 text-sm font-semibold"
           title="Email"
         >
           ✉
