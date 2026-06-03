@@ -23,8 +23,7 @@ export default async function Home() {
   const { journalist, articles } = portfolioData;
 
   const sortedArticles = [...(articles || [])].sort(
-    (a: Article, b: Article) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a: Article, b: Article) => Number(a.id) - Number(b.id)
   );
 
   return (
