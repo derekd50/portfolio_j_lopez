@@ -12,13 +12,13 @@
   "articles": [
     {
       "id": "1",
-      "title": "We Got This Covered",
-      "description": "Author page listing articles written by Jalen Lopez on We Got This Covered.",
-      "category": "Features",
-      "date": "2024-01-01",
-      "url": "https://wegotthiscovered.com/author/jalenlopez/",
-      "publication": "We Got This Covered",
-      "tags": ["author-page", "wegotthiscovered"]
+      "title": "San Antonio Business Journal",
+      "description": "Author bio and contributions for Jalen Lopez on the San Antonio Business Journal.",
+      "category": "Bio",
+      "date": "2022-01-01",
+      "url": "https://www.bizjournals.com/sanantonio/bio/43038/Jalen+Lopez",
+      "publication": "San Antonio Business Journal",
+      "tags": ["bio", "bizjournals"]
     },
     {
       "id": "2",
@@ -42,13 +42,13 @@
     },
     {
       "id": "4",
-      "title": "San Antonio Business Journal",
-      "description": "Author bio and contributions for Jalen Lopez on the San Antonio Business Journal.",
-      "category": "Bio",
-      "date": "2022-01-01",
-      "url": "https://www.bizjournals.com/sanantonio/bio/43038/Jalen+Lopez",
-      "publication": "San Antonio Business Journal",
-      "tags": ["bio", "bizjournals"]
+      "title": "We Got This Covered",
+      "description": "Author page listing articles written by Jalen Lopez on We Got This Covered.",
+      "category": "Features",
+      "date": "2024-01-01",
+      "url": "https://wegotthiscovered.com/author/jalenlopez/",
+      "publication": "We Got This Covered",
+      "tags": ["author-page", "wegotthiscovered"]
     },
     {
       "id": "5",
