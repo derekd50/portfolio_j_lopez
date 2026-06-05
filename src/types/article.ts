@@ -17,4 +17,5 @@ export interface FeaturedItem {
   title: string;
   description: string;
   url: string;
+  award?: string;
 }
