@@ -12,7 +12,7 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-6 text-sm text-slate-400">
             <Link href="#portfolio" className="hover:text-slate-100 transition-colors">
-              Works
+              Portfolio
             </Link>
             <Link href="#contact" className="hover:text-slate-100 transition-colors">
               Contact
