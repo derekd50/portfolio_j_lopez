@@ -24,7 +24,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         </p>
         <div className="flex justify-between items-center text-xs text-slate-500">
           <span>{article.publication}</span>
-          <time>{new Date(article.date).toLocaleDateString()}</time>
+          {article.date && <time>{new Date(article.date).toLocaleDateString()}</time>}
         </div>
       </div>
     </a>
