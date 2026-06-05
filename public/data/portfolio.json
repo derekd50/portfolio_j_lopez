@@ -71,6 +71,26 @@
       "tags": ["review", "noecho"]
     }
   ],
+  "featuredItems": [
+    {
+      "id": "1",
+      "title": "High Times in the Wild West",
+      "description": "Description coming soon.",
+      "url": "/pdfs/howhighistoohigh.pdf"
+    },
+    {
+      "id": "2",
+      "title": "Will Texas Continue to Hold'em?",
+      "description": "Description coming soon.",
+      "url": "/pdfs/howisthislegal.pdf"
+    },
+    {
+      "id": "3",
+      "title": "Coming Soon",
+      "description": "Description coming soon.",
+      "url": ""
+    }
+  ],
   "copyItems": [
     {
       "id": "1",

@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Article } from "@/types/article";
+import { Article, FeaturedItem } from "@/types/article";
 import ArticleGrid from "./ArticleGrid";
+import FeaturedCard from "./FeaturedCard";
 
 interface PortfolioTabsProps {
   articles: Article[];
   copyItems: Article[];
+  featuredItems: FeaturedItem[];
 }
 
-type Tab = "journalism" | "copy";
+type Tab = "journalism" | "copy" | "featured";
 
 const PREVIEW_COUNT = 6;
 
@@ -36,8 +38,8 @@ function CopySection({ title, items }: { title: string; items: Article[] }) {
   );
 }
 
-export default function PortfolioTabs({ articles, copyItems }: PortfolioTabsProps) {
-  const [activeTab, setActiveTab] = useState<Tab>("copy");
+export default function PortfolioTabs({ articles, copyItems, featuredItems }: PortfolioTabsProps) {
+  const [activeTab, setActiveTab] = useState<Tab>("featured");
 
   const blogs = copyItems.filter((i) => i.category === "Blog");
   const social = copyItems.filter((i) => i.category === "Social");
@@ -45,6 +47,16 @@ export default function PortfolioTabs({ articles, copyItems }: PortfolioTabsProp
   return (
     <div>
       <div className="flex gap-2 mb-10">
+        <button
+          onClick={() => setActiveTab("featured")}
+          className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+            activeTab === "featured"
+              ? "bg-slate-900 text-white border-slate-900"
+              : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+          }`}
+        >
+          Featured
+        </button>
         <button
           onClick={() => setActiveTab("copy")}
           className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
@@ -68,6 +80,14 @@ export default function PortfolioTabs({ articles, copyItems }: PortfolioTabsProp
       </div>
 
       {activeTab === "journalism" && <ArticleGrid articles={articles} />}
+
+      {activeTab === "featured" && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredItems.map((item) => (
+            <FeaturedCard key={item.id} item={item} />
+          ))}
+        </div>
+      )}
 
       {activeTab === "copy" && (
         <div className="space-y-14">

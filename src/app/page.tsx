@@ -20,13 +20,16 @@ async function getPortfolioData() {
 
 export default async function Home() {
   const portfolioData = await getPortfolioData();
-  const { journalist, articles, copyItems } = portfolioData;
+  const { journalist, articles, copyItems, featuredItems } = portfolioData;
 
   const sortedArticles = [...(articles || [])].sort(
     (a: Article, b: Article) => Number(a.id) - Number(b.id)
   );
   const sortedCopyItems = [...(copyItems || [])].sort(
     (a: Article, b: Article) => Number(a.id) - Number(b.id)
+  );
+  const sortedFeaturedItems = [...(featuredItems || [])].sort(
+    (a: { id: string }, b: { id: string }) => Number(a.id) - Number(b.id)
   );
 
   return (
@@ -85,7 +88,7 @@ export default async function Home() {
                 Access my published articles and pieces
               </p>
             </div>
-            <PortfolioTabs articles={sortedArticles} copyItems={sortedCopyItems} />
+            <PortfolioTabs articles={sortedArticles} copyItems={sortedCopyItems} featuredItems={sortedFeaturedItems} />
           </div>
         </section>
 

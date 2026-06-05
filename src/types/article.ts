@@ -11,3 +11,10 @@ export interface Article {
 }
 
 export type Category = 'News' | 'Features' | 'Opinion' | 'Investigation' | 'Other';
+
+export interface FeaturedItem {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+}
