@@ -22,16 +22,6 @@
     },
     {
       "id": "2",
-      "title": "Hotspawn",
-      "description": "Author page listing guides and articles by Jalen Lopez on Hotspawn.",
-      "category": "Guides",
-      "date": "2023-01-01",
-      "url": "https://www.hotspawn.com/author/jalenlopez",
-      "publication": "Hotspawn",
-      "tags": ["author-page", "hotspawn"]
-    },
-    {
-      "id": "3",
       "title": "Dot Esports",
       "description": "Author page and list of posts by Jalen Lopez on Dot Esports (coverage: VALORANT, Call of Duty, FPS titles).",
       "category": "Esports",
@@ -39,6 +29,16 @@
       "url": "https://dotesports.com/author/jalenlopez",
       "publication": "Dot Esports",
       "tags": ["author-page", "dotesports", "esports"]
+    },
+    {
+      "id": "3",
+      "title": "Hotspawn",
+      "description": "Author page listing guides and articles by Jalen Lopez on Hotspawn.",
+      "category": "Guides",
+      "date": "2023-01-01",
+      "url": "https://www.hotspawn.com/author/jalenlopez",
+      "publication": "Hotspawn",
+      "tags": ["author-page", "hotspawn"]
     },
     {
       "id": "4",

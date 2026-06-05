@@ -46,6 +46,16 @@ export default function PortfolioTabs({ articles, copyItems }: PortfolioTabsProp
     <div>
       <div className="flex gap-2 mb-10">
         <button
+          onClick={() => setActiveTab("copy")}
+          className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+            activeTab === "copy"
+              ? "bg-slate-900 text-white border-slate-900"
+              : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+          }`}
+        >
+          Copywriting
+        </button>
+        <button
           onClick={() => setActiveTab("journalism")}
           className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
             activeTab === "journalism"
@@ -54,16 +64,6 @@ export default function PortfolioTabs({ articles, copyItems }: PortfolioTabsProp
           }`}
         >
           Journalism
-        </button>
-        <button
-          onClick={() => setActiveTab("copy")}
-          className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-            activeTab === "copy"
-              ? "bg-slate-900 text-white border-slate-900"
-              : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
-          }`}
-        >
-          Copy
         </button>
       </div>
 
