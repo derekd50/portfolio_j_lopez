@@ -53,6 +53,14 @@ export default async function Home() {
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="text-white">
+                <div className="relative w-44 h-44 mb-6">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/Headshot.jpg`}
+                    alt={journalist.name || "Portfolio owner"}
+                    fill
+                    className="object-cover rounded-full border-2 border-white/20 shadow-xl"
+                  />
+                </div>
                 <p className="text-sm uppercase tracking-[0.35em] text-blue-300 mb-4">
                   Journalist Portfolio
                 </p>
@@ -63,15 +71,7 @@ export default async function Home() {
                   {journalist.bio || "Professional journalist and storyteller"}
                 </p>
               </div>
-              <div className="flex items-center justify-center lg:justify-end gap-6">
-                <div className="relative w-36 h-36 shrink-0">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/Headshot.jpg`}
-                    alt={journalist.name || "Portfolio owner"}
-                    fill
-                    className="object-cover rounded-full border-2 border-white/20 shadow-xl"
-                  />
-                </div>
+              <div className="flex justify-center lg:justify-end">
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-lg text-white/90 max-w-sm">
                   <p className="text-sm uppercase tracking-[0.3em] text-blue-300 mb-4">
                     Bio
