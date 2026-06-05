@@ -15,6 +15,28 @@ type Tab = "journalism" | "copy" | "featured";
 
 const PREVIEW_COUNT = 6;
 
+function JournalismSection({ articles }: { articles: Article[] }) {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? articles : articles.slice(0, PREVIEW_COUNT);
+  const hasMore = articles.length > PREVIEW_COUNT;
+
+  return (
+    <div>
+      <ArticleGrid articles={visible} />
+      {hasMore && (
+        <div className="text-center mt-8">
+          <button
+            onClick={() => setExpanded((prev) => !prev)}
+            className="px-6 py-2 rounded-full text-sm font-semibold border border-slate-300 text-slate-600 bg-white hover:border-slate-500 transition-all duration-200"
+          >
+            {expanded ? "Show less" : `Show ${articles.length - PREVIEW_COUNT} more`}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function CopySection({ title, items }: { title: string; items: Article[] }) {
   const [expanded, setExpanded] = useState(false);
   const visible = expanded ? items : items.slice(0, PREVIEW_COUNT);
@@ -79,7 +101,9 @@ export default function PortfolioTabs({ articles, copyItems, featuredItems }: Po
         </button>
       </div>
 
-      {activeTab === "journalism" && <ArticleGrid articles={articles} />}
+      {activeTab === "journalism" && (
+        <JournalismSection articles={articles} />
+      )}
 
       {activeTab === "featured" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
