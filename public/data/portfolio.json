@@ -15,7 +15,6 @@
       "title": "San Antonio Business Journal",
       "description": "Author bio and contributions for Jalen Lopez on the San Antonio Business Journal.",
       "category": "Bio",
-      "date": "2022-01-01",
       "url": "https://www.bizjournals.com/sanantonio/bio/43038/Jalen+Lopez",
       "publication": "San Antonio Business Journal",
       "tags": ["bio", "bizjournals"]
@@ -25,7 +24,6 @@
       "title": "San Antonio Current",
       "description": "Author contribution for Jalen Lopez on the San Antonio Current.",
       "category": "Bio",
-      "date": "2023-01-01",
       "url": "https://www.sacurrent.com/arts/meet-st-marys-kaitlin-teniente-the-first-female-head-coach-for-a-college-esports-program-in-texas-25845985/",
       "publication": "San Antonio Current",
       "tags": ["bio", "sacurrent"]
@@ -35,7 +33,6 @@
       "title": "Dot Esports",
       "description": "Author page and list of posts by Jalen Lopez on Dot Esports (coverage: VALORANT, Call of Duty, FPS titles).",
       "category": "Esports",
-      "date": "2025-01-01",
       "url": "https://dotesports.com/author/jalenlopez",
       "publication": "Dot Esports",
       "tags": ["author-page", "dotesports", "esports"]
@@ -45,7 +42,6 @@
       "title": "Hotspawn",
       "description": "Author page listing guides and articles by Jalen Lopez on Hotspawn.",
       "category": "Guides",
-      "date": "2023-01-01",
       "url": "https://www.hotspawn.com/author/jalenlopez",
       "publication": "Hotspawn",
       "tags": ["author-page", "hotspawn"]
@@ -55,7 +51,6 @@
       "title": "We Got This Covered",
       "description": "Author page listing articles written by Jalen Lopez on We Got This Covered.",
       "category": "Features",
-      "date": "2024-01-01",
       "url": "https://wegotthiscovered.com/author/jalenlopez/",
       "publication": "We Got This Covered",
       "tags": ["author-page", "wegotthiscovered"]
@@ -65,7 +60,6 @@
       "title": "GINX TV",
       "description": "Author page listing Jalen Lopez's gaming and esports articles on GINX TV.",
       "category": "Gaming",
-      "date": "2020-05-20",
       "url": "https://www.ginx.tv/en/author/jalen",
       "publication": "GINX TV",
       "tags": ["author-page", "ginx", "gaming"]
@@ -75,7 +69,6 @@
       "title": "No Echo",
       "description": "Link to a review page and content by Jalen Lopez hosted on No Echo.",
       "category": "Review",
-      "date": "2022-01-01",
       "url": "https://www.noecho.net/reviews/xweaponx-xweaponx-demo-2022",
       "publication": "No Echo",
       "tags": ["review", "noecho"]
