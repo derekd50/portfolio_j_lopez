@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Journalist Portfolio - Lopez, J.",
+  title: "Writing Portfolio - Lopez, J.",
   description:
-    "Professional portfolio showcasing journalism work and articles.",
+    "Professional portfolio showcasing copywriting and journalism work.",
 };
 
 export default function RootLayout({
