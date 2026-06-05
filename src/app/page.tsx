@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Header from "@/components/Header";
-import ArticleGrid from "@/components/ArticleGrid";
+import PortfolioTabs from "@/components/PortfolioTabs";
 import SocialLinks from "@/components/SocialLinks";
 import { Article } from "@/types/article";
 import fs from "fs";
@@ -20,9 +20,12 @@ async function getPortfolioData() {
 
 export default async function Home() {
   const portfolioData = await getPortfolioData();
-  const { journalist, articles } = portfolioData;
+  const { journalist, articles, copyItems } = portfolioData;
 
   const sortedArticles = [...(articles || [])].sort(
+    (a: Article, b: Article) => Number(a.id) - Number(b.id)
+  );
+  const sortedCopyItems = [...(copyItems || [])].sort(
     (a: Article, b: Article) => Number(a.id) - Number(b.id)
   );
 
@@ -82,7 +85,7 @@ export default async function Home() {
                 Access my published articles and pieces
               </p>
             </div>
-            <ArticleGrid articles={sortedArticles} />
+            <PortfolioTabs articles={sortedArticles} copyItems={sortedCopyItems} />
           </div>
         </section>
 
