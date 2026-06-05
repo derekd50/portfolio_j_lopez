@@ -6,8 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Uncomment and set basePath if hosting on a GitHub project page (not a user page)
-  basePath: "/portfolio_j_lopez",
 };
 
 export default nextConfig;
