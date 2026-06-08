@@ -1,22 +1,23 @@
 # Journalist Portfolio Site
 
-A modern, static portfolio website for journalists to showcase their published works, articles, and investigative pieces. Built with Next.js and optimized for GitHub Pages hosting.
+A modern, static portfolio website for Jalen Lopez showcasing published works, featured PDF pieces, and copywriting samples. Built with Next.js and deployed via GitHub Pages.
 
 ## Features
 
-- ✅ **Portfolio Gallery** - Display articles in a responsive grid layout
-- ✅ **Search & Filter** - Find articles by category, title, or tags
-- ✅ **Social Media Integration** - Links to Twitter, LinkedIn, GitHub
-- ✅ **Static Export** - Deploys as pure HTML/CSS/JS to GitHub Pages
-- ✅ **Responsive Design** - Mobile-friendly with Tailwind CSS
-- ✅ **Dark Theme** - Professional dark header with light content areas
+- **Three-Tab Portfolio** — Featured (PDFs), Copywriting (Blogs & Social), and Journalism tabs
+- **Featured PDF Section** — Showcase long-form pieces with optional award badges and "Coming Soon" placeholders
+- **Show More / Show Less** — Expandable lists on tabs with more than six items
+- **Static Export** — Deploys as pure HTML/CSS/JS to GitHub Pages
+- **Responsive Design** — Mobile-friendly with Tailwind CSS
+- **Dark Hero Section** — Full-bleed background image with headshot and bio card
 
 ## Tech Stack
 
-- **Next.js 16** - React framework with static export support
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **GitHub Pages** - Free hosting with automatic deployment
+- **Next.js 16** — React framework with static export support
+- **React 19** — Latest React
+- **TypeScript** — Type-safe development
+- **Tailwind CSS 4** — Utility-first styling
+- **GitHub Pages** — Free hosting with automatic deployment via GitHub Actions
 
 ## Quick Start
 
@@ -27,36 +28,37 @@ npm install
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see your site locally.
+Visit [http://localhost:3000](http://localhost:3000) to see the site locally.
 
-### Edit Your Portfolio
+### Edit Portfolio Content
 
 Edit `public/data/portfolio.json` to update:
-- Journalist name, bio, email
-- Social media links
-- Your articles with title, description, category, publication, and URL
+- Journalist name, bio tagline, email, and social links
+- `articles` — journalism publication links (Journalism tab)
+- `copyItems` — blog posts and social posts (Copywriting tab)
+- `featuredItems` — PDF documents (Featured tab)
+
+### Add Images
+
+Place images in `public/images/`:
+- `Headshot.jpg` — circular headshot shown in the hero section
+- `sa_skyline_retro.png` — hero background image
 
 ### Build & Deploy
 
 ```bash
-npm run build  # Create static export in ./out
+npm run build  # Creates static export in ./out
 ```
 
-Then deploy to GitHub Pages using the workflow below.
+Push to the `main` branch — GitHub Actions builds and deploys automatically.
 
 ## GitHub Pages Deployment
 
-### Setup
-
-If using a **project repository** (e.g., `username/portfolio_lopez_j`):
-- Edit `next.config.ts` and uncomment: `basePath: "/portfolio_lopez_j"`
-
-If using a **user page** repository (e.g., `username/username.github.io`):
-- Keep `basePath` commented out
+The site is configured as a GitHub Pages user page (no `basePath` required). The `NEXT_PUBLIC_BASE_PATH` environment variable is available if you need to adjust asset paths for a project-page repo.
 
 ### GitHub Actions Workflow
 
-Create `.github/workflows/deploy.yml`:
+The workflow at `.github/workflows/deploy.yml` runs on every push to `main`:
 
 ```yaml
 name: Deploy to GitHub Pages
@@ -82,10 +84,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
@@ -96,31 +98,37 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/deploy-pages@v2
+      - uses: actions/deploy-pages@v4
 ```
 
-Then push to GitHub and enable Pages in repository settings.
+Enable Pages in your repository settings (Source: GitHub Actions) to activate deployment.
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx       # Root layout
-│   ├── page.tsx         # Home page
-│   └── globals.css      # Styles
-├── components/          # React components
-│   ├── ArticleCard.tsx
-│   ├── ArticleGrid.tsx
+│   ├── layout.tsx        # Root layout
+│   ├── page.tsx          # Home page (hero, portfolio, contact sections)
+│   └── globals.css       # Global styles
+├── components/
+│   ├── ArticleCard.tsx   # Card for journalism/copy links
+│   ├── ArticleGrid.tsx   # Responsive grid of ArticleCards
 │   ├── CategoryFilter.tsx
-│   ├── Header.tsx
+│   ├── FeaturedCard.tsx  # PDF card with optional award badge
+│   ├── Header.tsx        # Top navigation bar
+│   ├── PortfolioTabs.tsx # Featured / Copywriting / Journalism tabs
 │   ├── SearchBar.tsx
-│   └── SocialLinks.tsx
+│   └── SocialLinks.tsx   # Email, LinkedIn, Twitter icons
 ├── types/
-│   └── article.ts       # TypeScript interfaces
+│   └── article.ts        # TypeScript interfaces (Article, FeaturedItem)
 public/
-└── data/
-    └── portfolio.json    # Your portfolio content
+├── data/
+│   └── portfolio.json    # All portfolio content
+├── images/
+│   ├── Headshot.jpg
+│   └── sa_skyline_retro.png
+└── pdfs/                 # PDF files linked from featuredItems
 ```
 
 ## Portfolio JSON Format
@@ -130,7 +138,7 @@ public/
   "journalist": {
     "name": "Your Name",
     "email": "contact@example.com",
-    "bio": "Your professional bio",
+    "bio": "Short tagline shown under your name",
     "socialLinks": {
       "twitter": "https://twitter.com/username",
       "linkedin": "https://linkedin.com/in/profile",
@@ -140,25 +148,48 @@ public/
   "articles": [
     {
       "id": "1",
-      "title": "Article Title",
-      "description": "Brief description",
-      "category": "News",
-      "date": "2026-04-28",
-      "url": "https://publication.com/article",
+      "title": "Publication Name",
+      "description": "Brief description of your work there",
+      "category": "Bio",
+      "url": "https://publication.com/author/you",
       "publication": "Publication Name",
       "tags": ["tag1", "tag2"]
+    }
+  ],
+  "copyItems": [
+    {
+      "id": "1",
+      "title": "Article Title",
+      "description": "Brief description",
+      "category": "Blog",
+      "url": "https://example.com/article",
+      "publication": "Publisher Name",
+      "tags": ["tag1"]
+    }
+  ],
+  "featuredItems": [
+    {
+      "id": "1",
+      "title": "Piece Title",
+      "description": "What this piece covers",
+      "url": "/pdfs/filename.pdf",
+      "award": "Optional award name"
     }
   ]
 }
 ```
 
-**Categories:** News, Features, Opinion, Investigation, Other
+**`articles` categories:** Bio, Esports, Gaming, Guides, Features, Review, or any custom string
+
+**`copyItems` categories:** `Blog` (shown under Blogs) or `Social` (shown under Social Posts)
+
+**`featuredItems`:** Leave `url` empty or omit it to render a "Coming Soon" placeholder card. The optional `award` field displays an amber badge on the card.
 
 ## Scripts
 
-- `npm run dev` - Development server
-- `npm run build` - Production build
-- `npm run lint` - ESLint check
+- `npm run dev` — Development server
+- `npm run build` — Production static export
+- `npm run lint` — ESLint check
 
 ## License
 
