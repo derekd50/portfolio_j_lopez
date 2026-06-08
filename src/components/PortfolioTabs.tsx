@@ -16,23 +16,13 @@ type Tab = "journalism" | "copy" | "featured";
 const PREVIEW_COUNT = 6;
 
 function JournalismSection({ articles }: { articles: Article[] }) {
-  const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? articles : articles.slice(0, PREVIEW_COUNT);
-  const hasMore = articles.length > PREVIEW_COUNT;
+  const publications = articles.filter((a) => a.category !== "Rankings");
+  const rankings = articles.filter((a) => a.category === "Rankings");
 
   return (
-    <div>
-      <ArticleGrid articles={visible} />
-      {hasMore && (
-        <div className="text-center mt-8">
-          <button
-            onClick={() => setExpanded((prev) => !prev)}
-            className="px-6 py-2 rounded-full text-sm font-semibold border border-slate-300 text-slate-600 bg-white hover:border-slate-500 transition-all duration-200"
-          >
-            {expanded ? "Show less" : `Show ${articles.length - PREVIEW_COUNT} more`}
-          </button>
-        </div>
-      )}
+    <div className="space-y-14">
+      {publications.length > 0 && <CopySection title="Publications" items={publications} />}
+      {rankings.length > 0 && <CopySection title="Rankings & Reports" items={rankings} />}
     </div>
   );
 }

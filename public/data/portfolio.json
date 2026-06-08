@@ -72,6 +72,33 @@
       "url": "https://www.noecho.net/reviews/xweaponx-xweaponx-demo-2022",
       "publication": "No Echo",
       "tags": ["review", "noecho"]
+    },
+    {
+      "id": "8",
+      "title": "15 Fastest-Growing Credit Unions in San Antonio",
+      "description": "Data report ranking the 15 fastest-growing credit unions in the San Antonio area.",
+      "category": "Rankings",
+      "url": "https://www.bizjournals.com/sanantonio/subscriber-only/2025/04/11/these-are-the-15-fastest-growing-credit-unions-in-the-san.html",
+      "publication": "San Antonio Business Journal",
+      "tags": ["data", "rankings", "credit unions", "bizjournals"]
+    },
+    {
+      "id": "9",
+      "title": "Credit Unions: Fastest-Growing Commercial Lenders",
+      "description": "Analysis of credit unions emerging as the fastest-growing commercial lenders in the San Antonio region.",
+      "category": "Rankings",
+      "url": "https://www.bizjournals.com/sanantonio/subscriber-only/2025/01/24/credit-unions-fastest-growing-commercial-lenders.html",
+      "publication": "San Antonio Business Journal",
+      "tags": ["data", "rankings", "credit unions", "bizjournals"]
+    },
+    {
+      "id": "10",
+      "title": "130 Highest-Revenue Private Companies in San Antonio",
+      "description": "Comprehensive ranking of the 130 highest-revenue private companies operating in San Antonio.",
+      "category": "Rankings",
+      "url": "https://www.bizjournals.com/sanantonio/subscriber-only/2025/06/13/meet-the-130-highest-revenue-private-companies-operating-in.html",
+      "publication": "San Antonio Business Journal",
+      "tags": ["data", "rankings", "private companies", "bizjournals"]
     }
   ],
   "featuredItems": [
