@@ -119,8 +119,7 @@ export default async function Home() {
             </h3>
             <div className="bg-white border border-slate-200 rounded-3xl shadow-lg shadow-slate-200/60 p-8 sm:p-12 max-w-2xl mx-auto">
               <p className="text-slate-600 mb-6 text-center">
-                Interested in collaborating or discussing a story? Feel free to
-                reach out.
+                Good content starts with a conversation.
               </p>
               <div className="flex justify-center">
                 <SocialLinks
