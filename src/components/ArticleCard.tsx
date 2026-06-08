@@ -10,7 +10,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       href={article.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block h-full p-6 bg-white border border-slate-200 rounded-3xl shadow-sm shadow-slate-200 hover:border-blue-300 hover:shadow-md hover:shadow-blue-100 transition-all duration-200"
+      className="block h-full p-6 bg-stone-50 border border-slate-200 rounded-3xl shadow-sm shadow-slate-200 hover:border-blue-300 hover:shadow-md hover:shadow-blue-100 transition-all duration-200"
     >
       <div className="flex flex-col h-full">
         {/* <span className="inline-block w-fit mb-3 px-3 py-1 text-xs font-semibold text-slate-950 bg-cyan-400 rounded-full">

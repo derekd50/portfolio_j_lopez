@@ -50,7 +50,7 @@ export default function FeaturedCard({ item }: FeaturedCardProps) {
 
   if (isPlaceholder) {
     return (
-      <div className="block h-full p-6 bg-white border border-dashed border-slate-200 rounded-3xl opacity-60">
+      <div className="block h-full p-6 bg-stone-50 border border-dashed border-slate-200 rounded-3xl opacity-60">
         {cardContent}
       </div>
     );
@@ -61,7 +61,7 @@ export default function FeaturedCard({ item }: FeaturedCardProps) {
       href={`${basePath}${item.url}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block h-full p-6 bg-white border border-slate-200 rounded-3xl shadow-sm shadow-slate-200 hover:border-blue-300 hover:shadow-md hover:shadow-blue-100 transition-all duration-200"
+      className="group block h-full p-6 bg-stone-50 border border-slate-200 rounded-3xl shadow-sm shadow-slate-200 hover:border-blue-300 hover:shadow-md hover:shadow-blue-100 transition-all duration-200"
     >
       {cardContent}
     </a>

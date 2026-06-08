@@ -97,7 +97,7 @@ export default async function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="py-16 sm:py-20 bg-slate-50">
+        <section id="portfolio" className="py-16 sm:py-20 bg-stone-100">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-12">
               <h3 className="text-3xl sm:text-4xl font-bold mb-2 text-slate-900">
@@ -112,7 +112,7 @@ export default async function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="bg-slate-100 py-16 sm:py-20">
+        <section id="contact" className="bg-stone-50 py-16 sm:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-slate-900">
               Get in Touch
