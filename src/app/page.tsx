@@ -72,18 +72,18 @@ export default async function Home() {
                 </p>
               </div>
               <div className="flex justify-center lg:justify-end">
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-lg text-white/90 max-w-sm">
+                <div className="max-w-sm">
                   <p className="text-sm uppercase tracking-[0.3em] text-blue-300 mb-4">
                     Bio
                   </p>
-                  <p className="text-sm leading-7 text-slate-200">
+                  <p className="text-base leading-7 text-slate-200">
                     Copywriter and former reporter with more than six years of experience creating engaging stories and strategic content for audiences across digital, print, and social platforms. My work has been published across multiple outlets, with coverage spanning business, economic development, lifestyle, culture, and community issues. I currently lead the content team at SWBC, serving as the primary Copywriter across twelve divisions.
                   </p>
                   <a
                     href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/pdfs/jalenlopezresume.pdf`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-5 text-xs font-semibold text-blue-300 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-blue-300 hover:text-white transition-colors"
                   >
                     View Resume
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,13 +112,13 @@ export default async function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="bg-stone-50 py-16 sm:py-20">
+        <section id="contact" className="bg-slate-900 py-16 sm:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-slate-900">
+            <h3 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-white">
               Get in Touch
             </h3>
-            <div className="bg-white border border-slate-200 rounded-3xl shadow-lg shadow-slate-200/60 p-8 sm:p-12 max-w-2xl mx-auto">
-              <p className="text-slate-600 mb-6 text-center">
+            <div className="max-w-2xl mx-auto text-center">
+              <p className="text-slate-400 mb-6">
                 Good content starts with a conversation.
               </p>
               <div className="flex justify-center">
@@ -135,7 +135,7 @@ export default async function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-slate-400 py-8 text-center text-sm">
+      <footer className="bg-slate-900 text-slate-400 py-8 text-center text-sm">
         <p>
           © {new Date().getFullYear()} {journalist.name || "Portfolio"}. All
           rights reserved.

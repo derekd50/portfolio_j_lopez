@@ -11,9 +11,55 @@ interface PortfolioTabsProps {
   featuredItems: FeaturedItem[];
 }
 
-type Tab = "journalism" | "copy" | "featured";
+type Tab = "all" | "featured" | "journalism" | "copy";
 
 const PREVIEW_COUNT = 6;
+
+function AllSection({ articles, copyItems, featuredItems }: PortfolioTabsProps) {
+  const publications = articles.filter((a) => a.category !== "Rankings");
+  const rankings = articles.filter((a) => a.category === "Rankings");
+  const blogs = copyItems.filter((i) => i.category === "Blog");
+  const social = copyItems.filter((i) => i.category === "Social");
+
+  return (
+    <div className="space-y-14">
+      {featuredItems.length > 0 && (
+        <div>
+          <h4 className="text-xl font-bold text-slate-800 mb-6">Featured</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredItems.map((item) => (
+              <FeaturedCard key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+      )}
+      {blogs.length > 0 && (
+        <div>
+          <h4 className="text-xl font-bold text-slate-800 mb-6">Blogs</h4>
+          <ArticleGrid articles={blogs} showCount={false} />
+        </div>
+      )}
+      {social.length > 0 && (
+        <div>
+          <h4 className="text-xl font-bold text-slate-800 mb-6">Social Posts</h4>
+          <ArticleGrid articles={social} showCount={false} />
+        </div>
+      )}
+      {publications.length > 0 && (
+        <div>
+          <h4 className="text-xl font-bold text-slate-800 mb-6">Publications</h4>
+          <ArticleGrid articles={publications} showCount={false} />
+        </div>
+      )}
+      {rankings.length > 0 && (
+        <div>
+          <h4 className="text-xl font-bold text-slate-800 mb-6">Rankings & Reports</h4>
+          <ArticleGrid articles={rankings} showCount={false} />
+        </div>
+      )}
+    </div>
+  );
+}
 
 function JournalismSection({ articles }: { articles: Article[] }) {
   const publications = articles.filter((a) => a.category !== "Rankings");
@@ -51,48 +97,38 @@ function CopySection({ title, items }: { title: string; items: Article[] }) {
 }
 
 export default function PortfolioTabs({ articles, copyItems, featuredItems }: PortfolioTabsProps) {
-  const [activeTab, setActiveTab] = useState<Tab>("featured");
+  const [activeTab, setActiveTab] = useState<Tab>("all");
 
   const blogs = copyItems.filter((i) => i.category === "Blog");
   const social = copyItems.filter((i) => i.category === "Social");
 
+  const tabs: { id: Tab; label: string }[] = [
+    { id: "all", label: "All" },
+    { id: "featured", label: "Featured" },
+    { id: "copy", label: "Copywriting" },
+    { id: "journalism", label: "Journalism" },
+  ];
+
   return (
     <div>
-      <div className="flex gap-2 mb-10">
-        <button
-          onClick={() => setActiveTab("featured")}
-          className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-            activeTab === "featured"
-              ? "bg-slate-900 text-white border-slate-900"
-              : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
-          }`}
-        >
-          Featured
-        </button>
-        <button
-          onClick={() => setActiveTab("copy")}
-          className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-            activeTab === "copy"
-              ? "bg-slate-900 text-white border-slate-900"
-              : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
-          }`}
-        >
-          Copywriting
-        </button>
-        <button
-          onClick={() => setActiveTab("journalism")}
-          className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-            activeTab === "journalism"
-              ? "bg-slate-900 text-white border-slate-900"
-              : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
-          }`}
-        >
-          Journalism
-        </button>
+      <div className="flex gap-2 mb-10 flex-wrap">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+              activeTab === tab.id
+                ? "bg-slate-900 text-white border-slate-900"
+                : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
-      {activeTab === "journalism" && (
-        <JournalismSection articles={articles} />
+      {activeTab === "all" && (
+        <AllSection articles={articles} copyItems={copyItems} featuredItems={featuredItems} />
       )}
 
       {activeTab === "featured" && (
@@ -101,6 +137,10 @@ export default function PortfolioTabs({ articles, copyItems, featuredItems }: Po
             <FeaturedCard key={item.id} item={item} />
           ))}
         </div>
+      )}
+
+      {activeTab === "journalism" && (
+        <JournalismSection articles={articles} />
       )}
 
       {activeTab === "copy" && (

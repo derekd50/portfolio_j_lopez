@@ -3,9 +3,10 @@ import ArticleCard from "./ArticleCard";
 
 interface ArticleGridProps {
   articles: Article[];
+  showCount?: boolean;
 }
 
-export default function ArticleGrid({ articles }: ArticleGridProps) {
+export default function ArticleGrid({ articles, showCount = true }: ArticleGridProps) {
   if (!articles || articles.length === 0) {
     return (
       <div className="text-center py-12">
@@ -21,9 +22,11 @@ export default function ArticleGrid({ articles }: ArticleGridProps) {
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>
-      <div className="text-center text-sm text-slate-500 pt-6">
-        Showing {articles.length} links
-      </div>
+      {showCount && (
+        <div className="text-center text-sm text-slate-500 pt-6">
+          Showing {articles.length} links
+        </div>
+      )}
     </div>
   );
 }
